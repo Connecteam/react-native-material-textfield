@@ -546,7 +546,7 @@ export default class TextField extends PureComponent {
             />
 
             {this.renderAffix('suffix', active, focused)}
-            {this.renderAccessory()}
+            {this.renderAccessory('right')}
           </View>
         </Animated.View>
 
