@@ -87,6 +87,7 @@ export default class Label extends PureComponent {
       tintColor,
       baseSize,
       basePadding,
+      baseMarginStart,
       style,
       errored,
       active, 
@@ -115,6 +116,12 @@ export default class Label extends PureComponent {
         inputRange: [0, 1],
         outputRange: [fontSize, activeFontSize],
       }),
+
+      marginStart: input.interpolate({
+        inputRange: [0, 1],
+        outputRange: [baseMarginStart, 0],
+      }),
+
 
       color,
     };

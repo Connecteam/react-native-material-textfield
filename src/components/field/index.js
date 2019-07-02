@@ -35,6 +35,7 @@ export default class TextField extends PureComponent {
     labelFontSize: 12,
     labelHeight: 32,
     labelPadding: 4,
+    labelMarginStart: 0,
     inputContainerPadding: 8,
 
     tintColor: 'rgb(0, 145, 234)',
@@ -61,6 +62,7 @@ export default class TextField extends PureComponent {
     labelFontSize: PropTypes.number,
     labelHeight: PropTypes.number,
     labelPadding: PropTypes.number,
+    labelMarginStart: PropTypes.number,
     inputContainerPadding: PropTypes.number,
 
     labelTextStyle: Text.propTypes.style,
@@ -340,6 +342,7 @@ export default class TextField extends PureComponent {
       labelFontSize,
       labelHeight,
       labelPadding,
+      labelMarginStart,
       inputContainerPadding,
       labelTextStyle,
       titleTextStyle,
@@ -484,6 +487,7 @@ export default class TextField extends PureComponent {
     let labelProps = {
       baseSize: labelHeight,
       basePadding: labelPadding,
+      baseMarginStart: labelMarginStart,
       fontSize,
       activeFontSize: labelFontSize,
       tintColor,
