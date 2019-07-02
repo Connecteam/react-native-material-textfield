@@ -282,19 +282,20 @@ export default class TextField extends PureComponent {
     }
   }
 
-  renderAccessory() {
-    let { renderAccessory } = this.props;
+    renderAccessory(type, style={}) {
+        let { renderLeftAccessory, renderAccessory } = this.props;
+        const renderAccessoryComponent = type === 'right' ? renderAccessory : renderLeftAccessory;
 
-    if ('function' !== typeof renderAccessory) {
-      return null;
+        if ('function' !== typeof renderAccessoryComponent) {
+            return null;
+        }
+
+        return (
+            <Animated.View style={[styles.accessory, style]}>
+                {renderAccessoryComponent()}
+            </Animated.View>
+        );
     }
-
-    return (
-      <View style={styles.accessory}>
-        {renderAccessory()}
-      </View>
-    );
-  }
 
   renderAffix(type, active, focused) {
     let {
@@ -451,6 +452,13 @@ export default class TextField extends PureComponent {
       fontSize: titleFontSize,
     };
 
+      let accessoryStyle = {
+          opacity: focus.interpolate({
+              inputRange: [-1, 0, 1],
+              outputRange: [1, active ? 1 : 1, 1],
+          }),
+      };
+
     let helperContainerStyle = {
       flexDirection: 'row',
       height: (title || limit)?
@@ -518,6 +526,7 @@ export default class TextField extends PureComponent {
           <Label {...labelProps}>{label}</Label>
 
           <View style={styles.row}>
+            {this.renderAccessory('left', accessoryStyle)}
             {this.renderAffix('prefix', active, focused)}
 
             <TextInput
