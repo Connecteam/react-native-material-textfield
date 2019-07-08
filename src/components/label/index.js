@@ -92,6 +92,7 @@ export default class Label extends PureComponent {
       errored,
       active, 
       focused,
+      isRequired,
       animationDuration,
       ...props
     } = this.props;
@@ -126,9 +127,24 @@ export default class Label extends PureComponent {
       color,
     };
 
+      let isRequiredStyle = {
+          width: 4,
+          height: 4,
+          borderRadius: 2,
+          backgroundColor: errorColor,
+          marginStart: 10,
+          opacity: input.interpolate({
+              inputRange: [0, 1],
+              outputRange: [1, 0],
+          })
+      };
+
     let containerStyle = {
       position: 'absolute',
       top,
+        flexDirection : 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
     };
 
     return (
@@ -136,6 +152,7 @@ export default class Label extends PureComponent {
         <Animated.Text style={[style, textStyle]} {...props}>
           {children}
         </Animated.Text>
+          {isRequired && <Animated.View style={isRequiredStyle}/>}
       </Animated.View>
     );
   }

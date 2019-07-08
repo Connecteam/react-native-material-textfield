@@ -27,6 +27,7 @@ export default class TextField extends PureComponent {
     disableFullscreenUI: true,
     autoCapitalize: 'sentences',
     editable: true,
+    isRequired: false,
 
     animationDuration: 225,
 
@@ -64,6 +65,7 @@ export default class TextField extends PureComponent {
     labelPadding: PropTypes.number,
     labelMarginStart: PropTypes.number,
     inputContainerPadding: PropTypes.number,
+    isRequired: PropTypes.bool,
 
     labelTextStyle: Text.propTypes.style,
     titleTextStyle: Text.propTypes.style,
@@ -341,6 +343,7 @@ export default class TextField extends PureComponent {
       fontSize,
       titleFontSize,
       labelFontSize,
+      isRequired,
       labelHeight,
       labelPadding,
       labelMarginStart,
