@@ -84,7 +84,7 @@ export default class TextField extends PureComponent {
 
     labelOffset: Label.propTypes.offset,
 
-    labelContainerStyle: (ViewPropTypes || View.propTypes).style,
+    labelContainerStyle: View.propTypes?.style,
 
     labelTextStyle: Text.propTypes.style,
     titleTextStyle: Text.propTypes.style,
@@ -119,8 +119,8 @@ export default class TextField extends PureComponent {
     prefix: PropTypes.string,
     suffix: PropTypes.string,
 
-    containerStyle: (ViewPropTypes || View.propTypes).style,
-    inputContainerStyle: (ViewPropTypes || View.propTypes).style,
+    containerStyle: View.propTypes?.style,
+    inputContainerStyle: View.propTypes?.style,
   };
 
   static inputContainerStyle = styles.inputContainer;
