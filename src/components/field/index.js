@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Platform,
 } from 'react-native';
+import { ViewPropTypes, TextPropTypes } from 'deprecated-react-native-prop-types';
 
 import Line from '../line';
 import Label from '../label';
@@ -83,11 +84,11 @@ export default class TextField extends PureComponent {
 
     labelOffset: Label.propTypes.offset,
 
-    labelContainerStyle: View.propTypes?.style,
+    labelContainerStyle: ViewPropTypes.style,
 
-    labelTextStyle: Text.propTypes.style,
-    titleTextStyle: Text.propTypes.style,
-    affixTextStyle: Text.propTypes.style,
+    labelTextStyle: TextPropTypes.style,
+    titleTextStyle: TextPropTypes.style,
+    affixTextStyle: TextPropTypes.style,
 
     tintColor: PropTypes.string,
     textColor: PropTypes.string,
@@ -118,8 +119,8 @@ export default class TextField extends PureComponent {
     prefix: PropTypes.string,
     suffix: PropTypes.string,
 
-    containerStyle: View.propTypes?.style,
-    inputContainerStyle: View.propTypes?.style,
+    containerStyle: ViewPropTypes.style,
+    inputContainerStyle: ViewPropTypes.style,
   };
 
   static inputContainerStyle = styles.inputContainer;
